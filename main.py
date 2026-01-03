@@ -13,9 +13,14 @@ def analyze_text(path):
             sentence_count += len(re.findall(r'[.!?]', line))
             clean_line = line.translate(str.maketrans("", "", string.punctuation))
             words = clean_line.split()
-            word_count += len(words)
-            word_frequency.update(words)
 
+            filtered_words = [
+                w for w in words 
+                if not w.replace('.', '', 1).isdigit()
+            ]
+
+            word_count += len(filtered_words)
+            word_frequency.update(filtered_words)
     return word_count, sentence_count, word_frequency
 
 
