@@ -23,6 +23,6 @@ print("""
 Words count: {word_count}
 Sentences count: {sentence_count}
 Top 10 words:
-""")
+""".format(word_count=word_count, sentence_count=sentence_count))
 for word, count in word_frequency.most_common(10):
     print(word, count)
