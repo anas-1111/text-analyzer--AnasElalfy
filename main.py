@@ -19,3 +19,10 @@ with open("sample_text.txt", "r", encoding="utf-8") as file:
         word_count += len(word)
         word_frequency.update(word)
 
+print("""
+Words count: {word_count}
+Sentences count: {sentence_count}
+Top 10 words:
+""")
+for word, count in word_frequency.most_common(10):
+    print(word, count)
